@@ -1,15 +1,16 @@
 import {useEffect, useState} from 'react'
 import {CharacterDataView} from './CharacterDataView'
 import {CharacterFallback} from './CharacterFallback'
+import {fetchData} from '../utils/fetch-data'
 
 function CharacterInfo({name}) {
   const [character, setCharacter] = useState(null)
   useEffect(() => {
-    // HERE FETCH CHARACTER
+    if (!name) return
     setCharacter(null)
-    if (name.length > 3) {
-      setCharacter({name: `fetched ${name}`, image: `fetched image`})
-    }
+    fetchData(`characters?name=${name}`).then(data => {
+      setCharacter(data)
+    })
   }, [name])
   if (!name) {
     return <div>Submit a character</div>

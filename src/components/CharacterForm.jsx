@@ -1,4 +1,4 @@
-import {useState} from 'react'
+import {useEffect, useState} from 'react'
 
 function CharacterForm({
   characterName: externalCharacterName,
@@ -6,6 +6,13 @@ function CharacterForm({
   onSubmit,
 }) {
   const [characterName, setCharacterName] = useState(initialCharacterName)
+
+  useEffect(() => {
+    if (typeof externalCharacterName === 'string') {
+      // TODO: derive state
+      setCharacterName(externalCharacterName)
+    }
+  }, [externalCharacterName])
 
   function handleChange(e) {
     setCharacterName(e.target.value)

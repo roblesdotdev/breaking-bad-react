@@ -2,10 +2,9 @@ import {useRef} from 'react'
 import {CharacterDataView} from './CharacterDataView'
 
 function CharacterFallback({name}) {
-  const initialName = useRef(name).current
   const characterFallbackData = {
-    name: `Fallback ${initialName}`,
-    image: 'fallback image',
+    name: `Fallback ${name}...`,
+    img: 'https://httpstatusdogs.com/img/404.jpg',
   }
   return <CharacterDataView character={characterFallbackData} />
 }
