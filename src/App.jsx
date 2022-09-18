@@ -10,9 +10,27 @@ function App() {
   }
 
   return (
-    <div>
+    <div
+      style={{
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
+        minHeight: '100vh',
+        gap: '8px',
+      }}
+    >
       <CharacterForm characterName={characterName} onSubmit={handleSubmit} />
-      <CharacterInfo name={characterName} />
+      <div
+        style={{
+          width: '300px',
+          height: '470px',
+          backgroundColor: '#ccc',
+          padding: '16px',
+        }}
+      >
+        <CharacterInfo name={characterName} />
+      </div>
     </div>
   )
 }

@@ -3,8 +3,8 @@ import {CharacterDataView} from './CharacterDataView'
 
 function CharacterFallback({name}) {
   const characterFallbackData = {
-    name: `Fallback ${name}...`,
-    img: 'https://httpstatusdogs.com/img/404.jpg',
+    name: `${name}`,
+    nickname: 'loading...',
   }
   return <CharacterDataView character={characterFallbackData} />
 }

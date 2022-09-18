@@ -1,8 +1,19 @@
 function CharacterDataView({character}) {
   return (
     <div>
-      <div>
-        <img width={320} src={character.img} alt={character.name} />
+      <div style={{width: '100%', height: '350px', backgroundColor: 'white'}}>
+        {character.img ? (
+          <img
+            style={{
+              width: '100%',
+              height: '100%',
+              objectFit: 'cover',
+              objectPosition: 'center',
+            }}
+            src={character.img}
+            alt={character.name}
+          />
+        ) : null}
       </div>
       <section>
         <h2>{character.name}</h2>
