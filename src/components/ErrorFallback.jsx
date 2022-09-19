@@ -1,7 +1,8 @@
 function ErrorFallback({error}) {
   return (
     <div>
-      There was an error <pre>{error.message}</pre>
+      There was an error{' '}
+      <pre style={{whiteSpace: 'pre-wrap'}}>{error.message}</pre>
     </div>
   )
 }
