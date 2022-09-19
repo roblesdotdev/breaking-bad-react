@@ -36,6 +36,8 @@ function CharacterInfo({name}) {
   } else if (status === STATUS.PENDING) {
     return <CharacterFallback name={name} />
   } else if (status === STATUS.REJECTED) {
+    // handle with error boundary
+    // throw error
     return <ErrorFallback error={error} />
   } else if (status === STATUS.RESOLVED) {
     return <CharacterDataView character={character} />

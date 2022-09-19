@@ -1,6 +1,8 @@
 import {useState} from 'react'
 import {CharacterForm} from './components/CharacterForm'
 import {CharacterInfo} from './components/CharacterInfo'
+import {ErrorBoundary} from './components/ErrorBoundary'
+import {ErrorFallback} from './components/ErrorFallback'
 
 function App() {
   const [characterName, setCharacterName] = useState('')
@@ -29,7 +31,9 @@ function App() {
           padding: '16px',
         }}
       >
-        <CharacterInfo name={characterName} />
+        <ErrorBoundary FallbackComponent={ErrorFallback} key={characterName}>
+          <CharacterInfo name={characterName} />
+        </ErrorBoundary>
       </div>
     </div>
   )

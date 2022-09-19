@@ -23,18 +23,22 @@ function CharacterForm({
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label>Character Name</label>
-      <div>
-        <input
-          type="text"
-          placeholder="Character name..."
-          value={characterName}
-          onChange={handleChange}
-        />
-        <button type="submit">Submit</button>
-      </div>
-    </form>
+    <div className="container">
+      <form onSubmit={handleSubmit}>
+        <h2>Character Name</h2>
+        <div className="form-group">
+          <input
+            type="text"
+            placeholder="Character name..."
+            value={characterName}
+            onChange={handleChange}
+          />
+          <button className="button" type="submit" disabled={!characterName}>
+            Submit
+          </button>
+        </div>
+      </form>
+    </div>
   )
 }
 
