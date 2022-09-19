@@ -4,6 +4,8 @@ import {CharacterInfo} from './components/CharacterInfo'
 import {ErrorBoundary} from './components/ErrorBoundary'
 import {ErrorFallback} from './components/ErrorFallback'
 
+import './styles/index.css'
+
 function App() {
   const [characterName, setCharacterName] = useState('')
 
@@ -12,25 +14,9 @@ function App() {
   }
 
   return (
-    <div
-      style={{
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        justifyContent: 'center',
-        minHeight: '100vh',
-        gap: '8px',
-      }}
-    >
+    <div className="app">
       <CharacterForm characterName={characterName} onSubmit={handleSubmit} />
-      <div
-        style={{
-          width: '300px',
-          height: '470px',
-          backgroundColor: '#ccc',
-          padding: '16px',
-        }}
-      >
+      <div className="container content">
         <ErrorBoundary FallbackComponent={ErrorFallback} key={characterName}>
           <CharacterInfo name={characterName} />
         </ErrorBoundary>

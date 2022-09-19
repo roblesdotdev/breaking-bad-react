@@ -1,6 +1,5 @@
 import {useEffect, useState} from 'react'
 import {CharacterDataView} from './CharacterDataView'
-import {CharacterFallback} from './CharacterFallback'
 import {NoCharacter} from './NoCharacter'
 import {ErrorFallback} from './ErrorFallback'
 import {fetchCharacter} from '../utils/fetch-data'
@@ -34,7 +33,7 @@ function CharacterInfo({name}) {
   if (status === STATUS.IDLE) {
     return <NoCharacter />
   } else if (status === STATUS.PENDING) {
-    return <CharacterFallback name={name} />
+    return <NoCharacter message={`loading ${name}...`} />
   } else if (status === STATUS.REJECTED) {
     // handle with error boundary
     // throw error
